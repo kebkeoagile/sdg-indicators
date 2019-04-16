@@ -111,8 +111,13 @@ plugins:
   - jekyll-remote-theme
   - jekyll-open-sdg-plugins
   - jekyll-get-json
+  - jekyll-redirect-from
 
 remote_theme: open-sdg/open-sdg@0.5.1
+
+# Apply any custom CSS.
+custom_css:
+- /assets/css/custom.css
 
 # Mapping
 map_options:
