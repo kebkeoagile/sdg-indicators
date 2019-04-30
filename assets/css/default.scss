@@ -613,26 +613,26 @@ h5 + .btn-download {
 }
 
 .danger {
-  background-color: #000D80;
+  background-color: #1499FC;
 }
 .warning {
   background-color: #f0ad4e;
 }
 .success {
-  background-color: #1499FC;
+  background-color: #000D80;
 }
 
 .notapplicable {
   background-color: #959595;
 }
 .notstarted {
-  background-color: #000D80;
+  background-color: #1499FC;
 }
 .inprogress {
   background-color: #f0ad4e;
 }
 .complete {
-  background-color: #1499FC;
+  background-color: #000D80;
 }
 
 #main-content {
@@ -1307,8 +1307,8 @@ h5 + .btn-download {
         width: 40px;
         text-align: center;
       }
-      .status.danger,
-      .status.notstarted{
+      .status.success,
+      .status.complete{
         color: white;
       }
     }
