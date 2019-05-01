@@ -12,26 +12,24 @@ baseurl: "/sdg-indicators" # the subpath of your site, e.g. /blog
 url: ""
 data_dir: data
 environment: staging
-remotedatabaseurl: "https://ONSdigital.github.io/sdg-data"
+remotedatabaseurl: "https://sdg.mango-solutions.com/data/3-4-2-embed"
 # permalink: /news/:year/:month/:day/:title.html
 
 jekyll_get_json:
   - data: meta
-    json: 'https://ONSdigital.github.io/sdg-data/meta/all.json'
+    json: 'https://sdg.mango-solutions.com/data/3-4-2-embed/meta/all.json'
     # cache: true
     # directory: 'remotedata'
   - data: headlines
-    json: 'https://ONSdigital.github.io/sdg-data/headline/all.json'
+    json: 'https://sdg.mango-solutions.com/data/3-4-2-embed/headline/all.json'
     # cache: true
     # directory: 'remotedata'
   - data: schema
-    json: 'https://ONSdigital.github.io/sdg-data/meta/schema.json'
-  - data: reporting
-    json: 'https://ONSdigital.github.io/sdg-data/stats/reporting.json'
+    json: 'https://sdg.mango-solutions.com/data/3-4-2-embed/meta/schema.json'
   - data: translations
     # Pin to version of the translation repo
-    json: 'https://open-sdg.github.io/sdg-translations/translations-0.5.0.json'
-    
+    json: 'https://open-sdg.github.io/sdg-translations/translations-0.3.2.json'
+
 analytics:
   ga_prod: ''
 
@@ -80,8 +78,6 @@ collections:
 languages:
   - en
 
-goal_image_base: https://open-sdg.github.io/sdg-translations/assets/img/goals
-
 # Menu
 menu:
   # Use these to customise the main navigation.
@@ -111,7 +107,7 @@ plugins:
   - jekyll-open-sdg-plugins
   - jekyll-get-json
 
-remote_theme: open-sdg/open-sdg@0.5.3
+remote_theme: open-sdg/open-sdg@0.3.1
 
 # Mapping
 map_options:
@@ -131,7 +127,7 @@ map_layers:
     #staticBorders: true
     # link: https://hub.arcgis.com/datasets/c362832ce5d14728a6fb2b079525be0b_4/data
   #Region
-  - min_zoom: 5
+  - min_zoom: 6
     max_zoom: 10
     serviceUrl: https://geoportal1-ons.opendata.arcgis.com/datasets/4fcca2a47fed4bfaa1793015a18537ac_4.geojson
     nameProperty: rgn17nm
@@ -139,7 +135,7 @@ map_layers:
     staticBorders: true
     # link: https://hub.arcgis.com/datasets/4fcca2a47fed4bfaa1793015a18537ac_4
   #Local Authority
-  - min_zoom: 6
+  - min_zoom: 7
     max_zoom: 10
     serviceUrl: https://geoportal1-ons.opendata.arcgis.com/datasets/686603e943f948acaa13fb5d2b0f1275_4.geojson
     nameProperty: lad16nm
@@ -153,5 +149,52 @@ map_layers:
     #nameProperty: cty18nm
     #idProperty: cty18cd
     # link: https://hub.arcgis.com/datasets/b7507e654334481e8e0787f42c9028c1_3
-  
-survey_url: https://www.surveymonkey.co.uk/r/XFJZGVL
+    
+# Mapping
+map_options:
+  tileURL: https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}
+  tileOptions:
+    id: mapbox.light
+    accessToken: pk.eyJ1IjoiYnJvY2tmYW5uaW5nMSIsImEiOiJjaXplbmgzczgyMmRtMnZxbzlmbGJmdW9pIn0.LU-BYMX69uu3eGgk0Imibg
+    attribution: <a href="https://www.mapbox.com">Mapbox</a> | <a href="http://geoportal.statistics.gov.uk/">ONS</a>
+  noValueColor: #7c7c7c
+  minZoom: 5
+map_layers:
+  #Country
+  #- min_zoom: 4
+    #max_zoom: 6
+    #serviceUrl: https://geoportal1-ons.opendata.arcgis.com/datasets/c362832ce5d14728a6fb2b079525be0b_4.geojson
+    #nameProperty: ctry17nm
+    #idProperty: ctry17cd
+    #staticBorders: true
+    # link: https://hub.arcgis.com/datasets/c362832ce5d14728a6fb2b079525be0b_4/data
+  #Region
+  - min_zoom: 10
+    max_zoom: 12
+    serviceUrl: https://geoportal1-ons.opendata.arcgis.com/datasets/4fcca2a47fed4bfaa1793015a18537ac_4.geojson
+    nameProperty: rgn17nm
+    idProperty: rgn17cd
+    staticBorders: false
+    # link: https://hub.arcgis.com/datasets/4fcca2a47fed4bfaa1793015a18537ac_4
+  #Local Authority
+  - min_zoom: 5
+    max_zoom: 10
+    serviceUrl: https://geoportal1-ons.opendata.arcgis.com/datasets/686603e943f948acaa13fb5d2b0f1275_4.geojson
+    nameProperty: lad16nm
+    idProperty: lad16cd
+    staticBorders: false
+    # link: https://hub.arcgis.com/datasets/686603e943f948acaa13fb5d2b0f1275_4
+  #County
+  #- min_zoom: 8
+    #max_zoom: 9
+    #serviceUrl: https://geoportal1-ons.opendata.arcgis.com/datasets/b7507e654334481e8e0787f42c9028c1_3.geojson
+    #nameProperty: cty18nm
+    #idProperty: cty18cd
+    # link: https://hub.arcgis.com/datasets/b7507e654334481e8e0787f42c9028c1_3
+  #MSOA
+  #- min_zoom: 8
+    #max_zoom: 10
+    #serviceUrl: https://opendata.arcgis.com/datasets/e7eb59d5d8f54ae287855f0ff9ee0030_2.geojson
+    #nameProperty: AREA_NAME
+    #idProperty: AREA_ID
+    # link: https://hub.arcgis.com/datasets/e7eb59d5d8f54ae287855f0ff9ee0030_2  
